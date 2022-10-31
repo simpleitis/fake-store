@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { updateCategory } from '../redux';
+import { updateCategory, updatePageNumber } from '../redux';
 
 function Button(props) {
   const handleClick = async (e) => {
     props.updateCategory(e.target.value);
+    props.updatePageNumber(1);
   };
 
   return (
@@ -19,9 +20,11 @@ function Button(props) {
   );
 }
 
+
 const mapDispatchToProps = (dispatch) => {
   return {
     updateCategory: (category) => dispatch(updateCategory(category)),
+    updatePageNumber: (pageNumber) => dispatch(updatePageNumber(pageNumber)),
   };
 };
 
